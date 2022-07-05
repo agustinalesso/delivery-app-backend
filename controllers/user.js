@@ -28,17 +28,25 @@ const user_updateUser = async (req,res) => {
         
         const google_uid = req.params.uid;
         const body = req.body;
-
         delete body._id;
         delete body.__v;
 
-        const usuarioActualizado = await MDB_Usuario.findOneAndUpdate({google_uid},body,{_id:0,__v:0});
+        const usuarioActualizado = await MDB_Usuario.findOneAndUpdate({google_uid},body);
+        
+        if(usuarioActualizado){
+            const usuarioActualizado = await MDB_Usuario.findOne({google_uid},{_id:0,__v:0});
+            res.status(200).send({
+                status: 200,
+                message: 'El usuario ha sido actualizado',
+                usuarioActualizado
+            });
+        }else{
+            res.status(500).send({
+                status: 500,
+                message: 'Ocurrió un error al intentar actualizar el usuario'
+            })
+        }
 
-        res.status(200).send({
-            status: 200,
-            message: 'El usuario ha sido actualizado',
-            usuarioActualizado
-        });
 
     } catch (error) {
         console.log(error);

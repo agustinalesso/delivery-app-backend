@@ -10,6 +10,7 @@ require('./config/database');
 const USER_ROUTES = require('./routes/user');
 const AUTH_ROUTES = require('./routes/auth');
 const MYSHOP_ROUTES = require('./routes/my-shop');
+const RequestController = require('./middlewares/RequestController');
 
 //Instancia e inicialización de Express
 const server = express();
@@ -17,9 +18,9 @@ const server = express();
 //Pase de implementaciones a Express
 server.use(cors());
 server.use(express.json());
-server.use('/user', USER_ROUTES);
-server.use('/auth', AUTH_ROUTES);
-server.use('/my-shop-data', MYSHOP_ROUTES);
+server.use('/user', RequestController, USER_ROUTES);
+server.use('/auth', RequestController, AUTH_ROUTES);
+server.use('/my-shop-data', RequestController, MYSHOP_ROUTES);
 
 //Inicialización de servidor
 server.listen(process.env.PORT, () => {

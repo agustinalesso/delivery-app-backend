@@ -11,7 +11,7 @@ const user_schema = mongoose.Schema({
     roles: { type: [String],default: ['Usuario'] },
     telefono: { type: String },
     genero: { type: String },
-    url_imagen: { type: String },
+    imagen_perfil: { type: String },
     fecha_nacimiento: { type: String }
 });
 
