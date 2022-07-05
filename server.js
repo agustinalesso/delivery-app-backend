@@ -9,6 +9,7 @@ require('./config/database');
 //Instancia de rutas de servidor
 const USER_ROUTES = require('./routes/user');
 const AUTH_ROUTES = require('./routes/auth');
+const MYSHOP_ROUTES = require('./routes/my-shop');
 
 //Instancia e inicialización de Express
 const server = express();
@@ -18,6 +19,7 @@ server.use(cors());
 server.use(express.json());
 server.use('/user', USER_ROUTES);
 server.use('/auth', AUTH_ROUTES);
+server.use('/my-shop-data', MYSHOP_ROUTES);
 
 //Inicialización de servidor
 server.listen(process.env.PORT, () => {

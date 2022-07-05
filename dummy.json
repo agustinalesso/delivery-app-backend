@@ -1,0 +1,11 @@
+[{
+    "nombre": "Cosas Ricas",
+    "descripcion": "Esta es mi descripcion",
+    "direccion": "Esta es la dire",
+    "telefono": "1234567890",
+    "sitio_web": "cosasricas.com",
+    "facebook_url": "facebook.com/cosasricas",
+    "instagram_url": "instagram.com/cosasricas",
+    "email": "cosas@ricas.com",
+    "banner_imagen_url": "una url"
+}]
