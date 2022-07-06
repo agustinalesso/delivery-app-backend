@@ -5,11 +5,12 @@ const shops_schema = new mongoose.Schema({
     descripcion: { type: String, required: true},
     direccion: { type: String, required: true},
     telefono: { type: String, required: true},
-    sitio_web: { type: String, required: true},
-    facebook_url: { type: String, required: true},
-    instagram_url: { type: String, required: true},
-    email: { type: String, required: true},
+    sitio_web: { type: String},
+    facebook_url: { type: String},
+    instagram_url: { type: String},
+    email: { type: String},
     banner_imagen_url: { type: String, required: true},
+    perfil_imagen_url: { type: String, required: true},
     owner: {type: mongoose.Schema.Types.ObjectId, ref: 'usuario'}
 })
 

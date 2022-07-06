@@ -20,19 +20,18 @@ const getShopData = async (req,res) => {
         const google_uid = req.params.uid;
         const usuario = await MDB_Usuario.findOne({google_uid});
         if(usuario){
-            console.log(usuario);
             const usuarioId = String(usuario._id);
-            console.log(usuarioId);
             const myshop = await MDB_MyShop.findOne({owner: usuarioId}).populate('owner');
-            console.log(myshop);
             if(myshop){
                 res.status(200).send({
                     status: 200,
+                    message: 'Shop found',
                     myshop
                 })
             }else{
                 res.status(200).send({
-                    status: 200
+                    status: 200,
+                    message: 'No shop available'
                 })
             }
         }else{
