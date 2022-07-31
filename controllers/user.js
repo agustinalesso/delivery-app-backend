@@ -30,8 +30,10 @@ const user_updateUser = async (req,res) => {
         const body = req.body;
         delete body._id;
         delete body.__v;
+        
+        const query = body.imagen_perfil === null ? {$unset: {"imagen_perfil": 1, "imagen_nombreArchivo": 1} } : {}
 
-        const usuarioActualizado = await MDB_Usuario.findOneAndUpdate({google_uid},body);
+        const usuarioActualizado = await MDB_Usuario.findOneAndUpdate({google_uid},body,{query});
         
         if(usuarioActualizado){
             const usuarioActualizado = await MDB_Usuario.findOne({google_uid},{_id:0,__v:0});

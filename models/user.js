@@ -12,6 +12,7 @@ const user_schema = mongoose.Schema({
     telefono: { type: String },
     genero: { type: String },
     imagen_perfil: { type: String },
+    imagen_nombreArchivo: { type: String },
     fecha_nacimiento: { type: String }
 });
 
